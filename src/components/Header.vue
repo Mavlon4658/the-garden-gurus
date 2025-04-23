@@ -7,14 +7,14 @@
             </router-link>
             <ul class="header-navs">
                 <li>
-                    <a href="#" class="header-navs__link">
+                    <router-link to="/table" class="header-navs__link">
                         <i class="fa-regular fa-paper-plane"></i>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
-                    <a href="#" class="header-navs__link">
+                    <router-link to="/answer" class="header-navs__link">
                         <i class="fa-solid fa-share-nodes"></i>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <a href="#" class="header-navs__link">
