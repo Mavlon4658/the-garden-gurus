@@ -20,7 +20,7 @@ export default {
                         'В журнале',
                         'В Интернете/на веб-сайте',
                         'У знакомых или друзей',
-                        'Другой ...'
+                        'other'
                     ]
                 },
                 {
@@ -42,7 +42,7 @@ export default {
                         'Интересное предложение или акция',
                         'Отзывы пользователей',
                         'Собственное любопытство',
-                        'Другое'
+                        'other'
                     ]
                 },
                 {
@@ -73,7 +73,7 @@ export default {
                         'Ниже цена',
                         'Лучшая поддержка',
                         'Другой внешний вид',
-                        'Другое'
+                        'other'
                     ]
                 },
                 {
@@ -117,7 +117,7 @@ export default {
                         'Скидки для постоянных клиентов',
                         'Техническая поддержка',
                         'Возможность возврата',
-                        'Другие'
+                        'other'
                     ]
                 }
             ],
@@ -154,9 +154,11 @@ export default {
                     <li
                         v-for="(item, i) in answers[currentAnswer].list"
                         :key="i"
-                        @click="nextAnswer()"
                     >
-                        {{ item }}
+                        <button @click="nextAnswer()" v-if="item != 'other'">
+                            {{ item }}
+                        </button>
+                        <input v-else  v-on:keyup.enter="nextAnswer()" type="text" placeholder="Другой ...">
                     </li>
                 </ul>
             </div>

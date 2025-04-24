@@ -1,15 +1,21 @@
 <template>
+    <button class="swp-btn swp-btn__prev" @click="slidePrev()">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="swp-btn swp-btn__next" @click="slideNext()">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
     <div class="bg-slider">
         <swiper
             :slides-per-view="1"
-            :space-between="50"
+            :space-between="0"
             :loop="true"
-            :speed="1000"
-            :effect="'fade'"
+            :speed="800"
             :autoplay="{
-                delay: 4000,
+                delay: 7000,
                 disableOnInteraction: false,
             }"
+            :navigation="true"
             :allowTouchMove="false"
             :modules="modules"
             @swiper="onSwiper"
@@ -29,12 +35,13 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { useSwiper, Swiper, SwiperSlide } from 'swiper/vue';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
 
-import {EffectFade, Autoplay } from 'swiper/modules';
+import {EffectFade, Autoplay, Navigation } from 'swiper/modules';
 
 export default {
     name: "BgSlider",
@@ -45,12 +52,22 @@ export default {
     setup() {
         const onSwiper = (swiper) => {};
         const onSlideChange = () => {};
+        const swiper = useSwiper();
         return {
+            swiper,
             onSwiper,
             onSlideChange,
-            modules: [EffectFade, Autoplay],
+            modules: [EffectFade, Autoplay, Navigation],
         };
     },
+    methods: {
+        slideNext() {
+            document.querySelector('.swiper-button-next').click();
+        },
+        slidePrev() {
+            document.querySelector('.swiper-button-prev').click();
+        },
+    }
 }
 </script>
 

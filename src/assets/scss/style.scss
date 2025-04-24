@@ -212,6 +212,82 @@ main {
             }
         }
     }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        opacity: 0;
+    }
+}
+
+.swp-btn {
+    position: fixed;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 30%);
+    transition: .3s ease-in-out all;
+
+    @include media(992) {
+        width: 30px;
+        height: 60px;
+    }
+
+    @include media(-992) {
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+
+    svg {
+        width: 13px;
+        height: auto;
+
+        @include media(992) {
+            width: 10px;
+        }
+
+        path {
+            color: #3E7A45
+        }
+    }
+
+    &__prev {
+        left: 50px;
+
+        &:active {
+            box-shadow: -2px 2px 4px inset rgba(0, 0, 0, 30%);
+        }
+
+        @include media(992) {
+            left: 0px;
+            border-radius: 0 100px 100px 0;
+            justify-content: flex-end;
+            padding-right: 12px;
+        }
+    }
+
+    &__next {
+        right: 50px;
+        box-shadow: -2px 2px 4px rgba(0, 0, 0, 30%);
+
+        &:active {
+            box-shadow: 2px 2px 4px inset rgba(0, 0, 0, 30%);
+        }
+
+        @include media(992) {
+            right: 0px;
+            border-radius: 100px 0 0 100px;
+            justify-content: flex-start;
+            padding-left: 12px;
+        }
+    }
 }
 
 // Home
@@ -537,9 +613,11 @@ main {
             gap: 4px;
         }
 
-        li {
+        button {
             background: white;
             border-radius: 5px;
+            width: 100%;
+            text-align: left;
             padding: 12px;
             cursor: pointer;
             user-select: none;
@@ -558,6 +636,24 @@ main {
             &:hover {
                 background: #e4e4e4;
                 transform: scale(1.02);
+            }
+        }
+
+        input {
+            background: white;
+            border-radius: 5px;
+            width: 100%;
+            text-align: left;
+            padding: 12px;
+            font-size: 16px;
+            line-height: 120%;
+            font-weight: 600;
+            color: #5f5f5f;
+            border: 1px solid rgba(153, 153, 153, 0.6);
+            
+            &::placeholder {
+                color: #5f5f5f;
+                opacity: 0.6;
             }
         }
     }
