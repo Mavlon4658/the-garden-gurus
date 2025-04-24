@@ -650,6 +650,11 @@ main {
             font-weight: 600;
             color: #5f5f5f;
             border: 1px solid rgba(153, 153, 153, 0.6);
+
+            @include media(992) {
+                font-size: 14px;
+                border-radius: 4px;
+            }
             
             &::placeholder {
                 color: #5f5f5f;
